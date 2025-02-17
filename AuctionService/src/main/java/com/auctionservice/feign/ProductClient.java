@@ -11,6 +11,6 @@ import com.auctionservice.dto.ProductDTO;
 public interface ProductClient {
 	@GetMapping("/product/{id}")
 	ProductDTO getByProductId(@PathVariable int id);
-	@PostMapping("/api/product/{productId}/{status}")
+	@PostMapping("/product/{productId}/{status}")
 	void setUpdatedStatus(@PathVariable int productId,@PathVariable String status);
 }
