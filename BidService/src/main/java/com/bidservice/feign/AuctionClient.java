@@ -9,8 +9,8 @@ import com.bidservice.dto.AuctionDto;
  
 @FeignClient("AUCTIONSERVICE")
 public interface AuctionClient {
-    @GetMapping("/api/auction/{auctionId}")
+    @GetMapping("/auction/{auctionId}")
     AuctionDto getAuctionById(@PathVariable Integer auctionId);
-    @PostMapping("/api/auction/{id}/{price}")
+    @PostMapping("/auction/{id}/{price}")
     void updateHighestBid(@PathVariable int id,@PathVariable double price);
 }

@@ -8,6 +8,6 @@ import com.product.dto.UserDTO;
 
 @FeignClient("USERSERVICE")
 public interface UserClient {
-	@GetMapping("api/user/{username}")
+	@GetMapping("/user/{username}")
 	UserDTO getByUserName(@PathVariable String username);
 }

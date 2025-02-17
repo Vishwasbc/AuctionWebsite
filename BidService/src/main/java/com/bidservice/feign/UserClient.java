@@ -9,6 +9,6 @@ import com.bidservice.dto.UserDto;
  
 @FeignClient("USERSERVICE")
 public interface UserClient {
-	@GetMapping("/api/user/{userName}")
+	@GetMapping("/user/{userName}")
 	public UserDto getByUserName(@PathVariable String userName);
 }

@@ -24,7 +24,7 @@ import lombok.AllArgsConstructor;
  * Controller class for managing product-related operations.
  */
 @RestController
-@RequestMapping("/api/product")
+@RequestMapping("/product")
 @AllArgsConstructor
 public class ProductController {
 

@@ -20,7 +20,7 @@ import lombok.AllArgsConstructor;
  * Controller class for managing bid-related operations.
  */
 @RestController
-@RequestMapping("/api/bids")
+@RequestMapping("/bids")
 @AllArgsConstructor
 public class BidController {
     private BidService bidService;

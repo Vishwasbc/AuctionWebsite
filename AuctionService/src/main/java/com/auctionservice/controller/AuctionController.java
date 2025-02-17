@@ -25,7 +25,7 @@ import lombok.AllArgsConstructor;
  * Controller class for managing auction-related operations.
  */
 @RestController
-@RequestMapping("/api/auction")
+@RequestMapping("/auction")
 @AllArgsConstructor
 public class AuctionController {
 	private AuctionService auctionService;

@@ -9,7 +9,7 @@ import com.auctionservice.dto.ProductDTO;
 
 @FeignClient("PRODUCTSERVICE")
 public interface ProductClient {
-	@GetMapping("/api/product/{id}")
+	@GetMapping("/product/{id}")
 	ProductDTO getByProductId(@PathVariable int id);
 	@PostMapping("/api/product/{productId}/{status}")
 	void setUpdatedStatus(@PathVariable int productId,@PathVariable String status);

@@ -22,7 +22,7 @@ import lombok.AllArgsConstructor;
  * Controller class for managing user-related operations.
  */
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/user")
 @AllArgsConstructor
 public class UserController {
 	private UserService userService;
