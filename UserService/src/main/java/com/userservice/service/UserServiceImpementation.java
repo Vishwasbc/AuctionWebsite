@@ -2,6 +2,7 @@ package com.userservice.service;
 
 import java.util.Objects;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.userservice.DTO.UserDTO;
@@ -11,16 +12,15 @@ import com.userservice.exception.IncorrectPasswordException;
 import com.userservice.exception.UserNotFoundException;
 import com.userservice.repository.UserRepository;
 
-import lombok.AllArgsConstructor;
-
 /**
  * Service implementation class for managing user-related operations.
  */
 @Service
-@AllArgsConstructor
 public class UserServiceImpementation implements UserService {
 
 	private UserRepository userRepository;
+	
+	private PasswordEncoder passwordEncoder;
 
 	/**
 	 * Logs in a user with the given username and password.
@@ -53,6 +53,7 @@ public class UserServiceImpementation implements UserService {
 		if (userRepository.findById(user.getUserName()).isPresent()) {
 			throw new DuplicateEntityException("Entity with usename " + user.getUserName() + " already exists.");
 		}
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		return userRepository.save(user);
 	}
 
@@ -86,7 +87,7 @@ public class UserServiceImpementation implements UserService {
 		existingUser.setFirstName(user.getFirstName());
 		existingUser.setLastName(user.getLastName());
 		existingUser.setEmail(user.getEmail());
-		existingUser.setPassword(user.getPassword());
+		existingUser.setPassword(passwordEncoder.encode(user.getPassword()));
 		existingUser.setContactNo(user.getContactNo());
 		existingUser.setBirthDate(user.getBirthDate());
 		existingUser.setGender(user.getGender());
